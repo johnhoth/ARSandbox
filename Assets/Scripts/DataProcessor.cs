@@ -43,9 +43,9 @@ namespace KinectInterface
                 }
             }
 
-            Debug.Log($"Terrain updated with processed depth data. Min:{minDepth}, Max:{maxDepth}");
+            // Debug.Log($"Terrain updated with processed depth data. Min:{minDepth}, Max:{maxDepth}");
             // Output depth counts for debugging
-            Debug.Log("Depth counts: " + String.Join(", ", depthCounts));
+            // Debug.Log("Depth counts: " + String.Join(", ", depthCounts));
         }
         
 
@@ -58,7 +58,7 @@ namespace KinectInterface
                 this.kinectManager.dataReceiver.SwapDataBuffers();
 
                 IntPtr depthDataBuffer = this.kinectManager.dataReceiver.GetDepthDataBuffer();
-                Debug.Log("Accessing depth data...");
+                // Debug.Log("Accessing depth data...");
                 try {
                     unsafe {
                         Int16* depthPtr = (Int16*)depthDataBuffer;//.ToPointer();

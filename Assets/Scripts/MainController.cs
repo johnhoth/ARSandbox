@@ -1,8 +1,5 @@
 using UnityEngine;
 using System;
-using freenect;
-using System.Threading;
-using System.Collections;
 
 namespace KinectInterface
 {
@@ -15,7 +12,7 @@ namespace KinectInterface
 
         public Terrain terrain; // Assign this in the Unity Inspector
 
-        private float updateInterval = 0.2f; // Interval for updating the terrain in seconds
+        private float updateInterval = 0.1f; // Interval for updating the terrain in seconds
         private float timeSinceLastUpdate = 0f;
 
         void Start()
@@ -44,12 +41,25 @@ namespace KinectInterface
                 timeSinceLastUpdate = 0f;
                 terrainManager.UpdateTerrain();
             }
-        }
 
-        void OnApplicationQuit()
-        {
-            // Debug.Log("Application is quitting. Disconnecting Kinect...");
-            // kinectManager?.Disconnect();
+            // Handle key presses
+            if (Input.GetKeyDown(KeyCode.Alpha1)) // Save state
+            {
+                terrainManager.SaveTerrainState();
+                Debug.Log("Terrain state saved.");
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha0)) // Reset
+            {
+                terrainManager.ResetTerrainColor();
+                Debug.Log("Terrain color reset.");
+            }
+
+            if (Input.GetKeyDown(KeyCode.C)) // Apply coloring
+            {
+                terrainManager.ApplyColoring();
+                Debug.Log("Coloring applied to terrain.");
+            }
         }
     }
 }

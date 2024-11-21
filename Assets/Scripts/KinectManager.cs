@@ -147,7 +147,7 @@ namespace KinectInterface
         }
 
         private void HandleKinectVideoCameraDataReceived(object sender, VideoCamera.DataReceivedEventArgs e) {
-            Debug.Log("Video data received");
+            // Debug.Log("Video data received");
             // try {
             //     TODO
             // } catch (Exception ex) {

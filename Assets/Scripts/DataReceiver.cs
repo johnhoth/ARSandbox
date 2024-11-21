@@ -136,7 +136,7 @@ namespace KinectInterface
             }
 
             this.videoDataPending = true;
-            Console.WriteLine("Video buffer updated. FPS: " + this.VideoFPS);
+            // Console.WriteLine("Video buffer updated. FPS: " + this.VideoFPS);
         }
 
         public void HandleDepthBackBufferUpdate() { 
@@ -161,7 +161,7 @@ namespace KinectInterface
 
             MarkDepthDataAsPending();
 
-            Debug.Log("Depth buffer updated. FPS: " + this.DepthFPS);
+            // Debug.Log("Depth buffer updated. FPS: " + this.DepthFPS);
         }
 
 
